@@ -47,6 +47,13 @@ public class CharakterController {
         return CharakterRepo.read(id);
     }
 
+    public Charakter getCharakterByName(String id) {
+        for (Charakter ch:CharakterRepo.getAll())
+            if (ch.getName().equals(id))
+                return ch;
+        return null;
+    }
+
     public List<Charakter> filterByOrigin(String origin) {
         List<Charakter> charakters = new ArrayList<>();
         for (Charakter charakter : CharakterRepo.getAll())
@@ -104,5 +111,19 @@ public class CharakterController {
         }
 
         return len1 - len2;
+    }
+
+    public List<Product> sortProductsAscending(Charakter charakter){
+        //Charakter client=getCharakterById(charakterId);
+        List<Product> products=charakter.getProducts();
+        products.sort(Comparator.comparingDouble(Product::getPrice));
+        return products;
+    }
+
+    public List<Product> sortProductsDescending(Charakter charakter){
+        //Charakter client=getCharakterById(clientId);
+        List<Product> products=charakter.getProducts();
+        products.sort(Comparator.comparingDouble(Product::getPrice).reversed());
+        return products;
     }
 }

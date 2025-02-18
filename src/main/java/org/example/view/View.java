@@ -119,20 +119,21 @@ public class View {
                     break;
 
                 case "12":
-//                    int choice=readChoiceId(scanner);
-//                    if (choice==1){
-//                        int clientId=readClientId(scanner);
-//                        List<Product> products=CharakterController.sortProductsAscending(clientId);
-//                        for (Product product2:products)
-//                            System.out.println(product2.getName());
-//                    }
-//
-//                    if (choice==2){
-//                        int clientId=readClientId(scanner);
-//                        List<Product> products=CharakterController.sortProductsDescending(clientId);
-//                        for (Product product2:products)
-//                            System.out.println(product2.getName());
-//                    }
+                    int choice=readChoiceId(scanner);
+                    if (choice==1){
+                        String clientId=readClientName(scanner);
+
+                        List<Product> products=CharakterController.sortProductsAscending(CharakterController.getCharakterByName(clientId));
+                        for (Product product2:products)
+                            System.out.println(product2.getId()+" "+product2.getPrice());
+                    }
+
+                    if (choice==2){
+                        String clientId=readClientName(scanner);
+                        List<Product> products=CharakterController.sortProductsDescending(CharakterController.getCharakterByName(clientId));
+                        for (Product product2:products)
+                            System.out.println(product2.getId()+" "+product2.getPrice());
+                    }
 
                     break;
 
