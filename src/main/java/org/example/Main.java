@@ -16,7 +16,7 @@ public class Main {
         IRepository<Charakter> clientRepo=new InMemoryRepository<>();
 
         Charakter charakter=new Charakter(1,"ch1","org1");
-        Product product=new Product("Kunai",75.0F,"Konoha");
+        Product product=new Product("Kunai",75.0,"Konoha");
         clientRepo.create(charakter);
         productRepo.create(product);
 

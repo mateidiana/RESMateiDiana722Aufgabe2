@@ -24,7 +24,7 @@ public class View {
                     //int id=readProductId(scanner);
                     String name=readProductName(scanner);
                     String origin=readProductOrigin(scanner);
-                    Float price=readProductPrice(scanner);
+                    Double price=readProductPrice(scanner);
                     if (ProductController.createProduct(name,price, origin))
                         System.out.println("Product added!");
                     else
@@ -43,7 +43,7 @@ public class View {
                     //int idUpdate=readProductId(scanner);
                     String nameUpdate=readProductName(scanner);
                     String originUpdate=readProductOrigin(scanner);
-                    Float priceUpdate=readProductPrice(scanner);
+                    Double priceUpdate=readProductPrice(scanner);
 
                     if (ProductController.updateProduct(nameUpdate,priceUpdate,originUpdate))
                         System.out.println("Product updated!");
@@ -105,17 +105,17 @@ public class View {
                     break;
 
                 case "10":
-//                    int idProduct=readProductId(scanner);
-//                    int idCharakter=readClientId(scanner);
-//                    Product product1=ProductController.getProductById(idProduct);
-//                    CharakterController.buyProduct(idCharakter,product1);
+                    String idProduct=readProductName(scanner);
+                    int idCharakter=readClientId(scanner);
+                    Product product1=ProductController.getProductById(idProduct);
+                    CharakterController.buyProduct(idCharakter,product1);
                     break;
 
                 case "11":
-//                    String findOriginFilter=readProductOrigin(scanner);
-//                    List<Charakter> clients=CharakterController.filterByProductAndOrigin(findOriginFilter);
-//                    for (Charakter client1:clients)
-//                        System.out.println(client1.getName());
+                    String findOriginFilter=readProductOrigin(scanner);
+                    List<Charakter> clients=CharakterController.filterByProductAndOrigin(findOriginFilter);
+                    for (Charakter client1:clients)
+                        System.out.println(client1.getName());
                     break;
 
                 case "12":
@@ -179,8 +179,8 @@ public class View {
         return scanner.nextLine();
     }
 
-    private static Float readProductPrice(Scanner scanner) {
+    private static Double readProductPrice(Scanner scanner) {
         System.out.print("Enter product price: ");
-        return Float.parseFloat(scanner.nextLine());
+        return Double.parseDouble(scanner.nextLine());
     }
 }

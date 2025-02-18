@@ -10,7 +10,7 @@ public class ProductController {
     private final IRepositoryString<Product> productRepo;
     public ProductController(IRepositoryString<Product> productRepo){this.productRepo=productRepo;}
 
-    public boolean createProduct(String name, Float price, String origin){
+    public boolean createProduct(String name, Double price, String origin){
         for (Product product:productRepo.getAll())
             if (product.getId().equals(name))
                 return false;
@@ -29,7 +29,7 @@ public class ProductController {
 
     }
 
-    public boolean updateProduct(String name, Float price, String origin){
+    public boolean updateProduct(String name, Double price, String origin){
         for (Product product:productRepo.getAll())
             if (product.getId().equals(name))
             {
