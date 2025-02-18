@@ -54,6 +54,11 @@ public class CharakterController {
         return null;
     }
 
+    /**
+     * Filters the characters by their origin
+     * @param origin identifies an origin, given as input by the user
+     * @return a list of characters
+     */
     public List<Charakter> filterByOrigin(String origin) {
         List<Charakter> charakters = new ArrayList<>();
         for (Charakter charakter : CharakterRepo.getAll())
@@ -62,6 +67,11 @@ public class CharakterController {
         return charakters;
     }
 
+    /**
+     * Inserts a product in a character's product list
+     * @param charakterId identifies a charakter
+     * @param product identifies a product
+     */
     public void buyProduct(int charakterId, Product product){
         Charakter client=getCharakterById(charakterId);
         List<Product> products=client.getProducts();
